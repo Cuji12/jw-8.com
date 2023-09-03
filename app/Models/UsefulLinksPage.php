@@ -12,6 +12,7 @@ class UsefulLinksPage extends Model
     protected $fillable = [
         'title',
         'image',
-        'image_alt'
+        'image_alt',
+        'active'
     ];
 }

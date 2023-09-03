@@ -2,9 +2,21 @@
 
 namespace App\Providers;
 
+use App\Nova\AboutUsPage;
+use App\Nova\CaseStudiesPage;
+use App\Nova\CaseStudy;
+use App\Nova\OurConsultantsPage;
+use App\Nova\OurSolutionsPage;
+use App\Nova\Page;
+use App\Nova\UsefulLinksPage;
+use App\Nova\User;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Menu\MenuGroup;
+use Laravel\Nova\Menu\MenuItem;
+use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Illuminate\Http\Request;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -16,6 +28,37 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Nova::mainMenu(function (Request $request) {
+            return [
+                MenuSection::make('Pages', [
+                    MenuGroup::make('Home', [
+                        Menuitem::resource(Page::class),
+                        Menuitem::resource(CaseStudy::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('About Us', [
+                        MenuItem::resource(AboutUsPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Our Solutions', [
+                        MenuItem::resource(OurSolutionsPage::class),
+                        Menuitem::resource(Page::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Our Consultants', [
+                        MenuItem::resource(OurConsultantsPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Case Studies', [
+                        MenuItem::resource(CaseStudiesPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Useful Links', [
+                        MenuItem::resource(UsefulLinksPage::class),
+                    ])->collapsedByDefault(),
+
+                ])->icon('document-text')->collapsedByDefault(),
+                MenuSection::make('Users', [
+                    MenuItem::resource(User::class)
+                ])->icon('user')->collapsable(),
+            ];
+        });
     }
 
     /**

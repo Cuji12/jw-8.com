@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('case_studies_page', function (Blueprint $table) {
+        Schema::create('useful_links_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable(false);
-            $table->text('body')->nullable(false);
             $table->string('image')->nullable();
             $table->string('image_alt')->nullable();
             $table->boolean('active')->nullable(false);
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('case_studies_page');
+        Schema::dropIfExists('useful_links_pages');
     }
 };

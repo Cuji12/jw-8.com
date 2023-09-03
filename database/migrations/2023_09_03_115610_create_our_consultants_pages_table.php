@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('about_us_page', function (Blueprint $table) {
+        Schema::create('our_consultants_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100)->nullable(false);
+            $table->string('title')->nullable(false);
             $table->text('body')->nullable(false);
-            $table->string('image')->nullable();
-            $table->string('image_alt')->nullable();
             $table->boolean('active')->nullable(false);
             $table->timestamps();
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('about_us_page');
+        Schema::dropIfExists('our_consultants_pages');
     }
 };

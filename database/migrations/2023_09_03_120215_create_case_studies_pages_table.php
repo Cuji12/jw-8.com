@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('useful_links', function (Blueprint $table) {
+        Schema::create('case_studies_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100)->nullable(false);
-            $table->string('link')->nullable(false);
+            $table->string('title')->nullable(false);
             $table->text('body')->nullable(false);
+            $table->string('image')->nullable();
+            $table->string('image_alt')->nullable();
             $table->boolean('active')->nullable(false);
-            $table->foreignId('useful_links_page_id')
-                ->nullable()
-                ->constrained('useful_links_page')
-                ->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('useful_links');
+        Schema::dropIfExists('case_studies_pages');
     }
 };

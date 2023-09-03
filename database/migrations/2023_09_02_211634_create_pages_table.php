@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 100)->nullable(false);
             $table->text('body')->nullable(false);
             $table->boolean('active')->nullable(false);
+            $table->string('slug')->nullable(false);
             $table->timestamps();
         });
     }
