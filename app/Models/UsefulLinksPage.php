@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HomeContent extends Model
+class UsefulLinksPage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'image',
+        'image_alt'
+    ];
 }
