@@ -17,6 +17,7 @@
 - `sail artisan nova:install`
 - `sail artisan migrate`
 - `sail npm run dev`
+- Access website at `http://localhost` and Laravel Nova at `http://localhost/nova`
 
 
 ## Useful Information
