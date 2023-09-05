@@ -1,10 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+.navigation > li {
+    border-right-width: 1px;
+    border-left-width: 1px;
+}
+.navigation > li:first-child {
+    border-left: none;
+}
+.navigation > li:last-child {
+    border-right: none;
+}
+
+.markdown-content p {
+    margin-bottom: 1.5rem;
+}
+.markdown-content a {
+    color: #3490dc;
+    text-decoration: underline;
 }
 

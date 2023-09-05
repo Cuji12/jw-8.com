@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\CaseStudy;
 use App\Models\Page;
+use App\Models\AboutUsPage;
+use App\Models\OurSolutionsPage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Parsedown;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SiteController extends Controller
@@ -17,8 +22,11 @@ class SiteController extends Controller
      */
     public function index(): View
     {
+        $banners = Banner::where('active', true)->limit(3)->get();
+        $pages = Page::where('active', true)->limit(10)->get();
+        $case_studies = CaseStudy::where('active', true)->limit(3)->get();
 
-        return view('index');
+        return view('index', compact('banners', 'pages', 'case_studies'));
     }
 
     /**
@@ -26,7 +34,25 @@ class SiteController extends Controller
      */
     public function aboutUs(): View
     {
-        return view('about-us');
+        $content = AboutUsPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->body = $parsed_body->text($content->body);
+
+        return view('about-us', compact('content'));
+    }
+
+    /**
+     * @return View
+     */
+    public function ourSolutions(): View
+    {
+        $content = OurSolutionsPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->top_text = $parsed_body->text($content->top_text);
+        $content->bottom_text = $parsed_body->text($content->bottom_text);
+        $pages = Page::where('active', true)->limit(10)->get();
+
+        return view('our-solutions', compact('content', 'pages'));
     }
 
     /**

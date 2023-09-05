@@ -36,13 +36,6 @@ class OurSolutionsPage extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'Our Solutions Page';
-
-    /**
      * Override the label shown in the admin sidebar.
      *
      * @return string
@@ -67,7 +60,11 @@ class OurSolutionsPage extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('body')
+            Markdown::make('Top Text')
+                ->withFiles('public')
+                ->required(),
+
+            Markdown::make('Bottom Text')
                 ->withFiles('public')
                 ->required(),
 
@@ -77,7 +74,9 @@ class OurSolutionsPage extends Resource
             Text::make('image_alt')
                 ->rules('max:255'),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->rules('required')
+                ->default(true),
         ];
     }
 

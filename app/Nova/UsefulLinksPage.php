@@ -36,13 +36,6 @@ class UsefulLinksPage extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'Useful Links Page';
-
-    /**
      * Override the label shown in the admin sidebar.
      *
      * @return string
@@ -67,12 +60,17 @@ class UsefulLinksPage extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
+            Markdown::make('body')
+                ->rules('required'),
+
             Image::make('image')->disk('public'),
 
             Text::make('image_alt')
                 ->rules('max:255'),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->required()
+                ->default(true),
         ];
     }
 

@@ -6,18 +6,17 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class CaseStudiesPage extends Resource
+class Banner extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\CaseStudiesPage>
+     * @var class-string<\App\Models\Banner>
      */
-    public static $model = \App\Models\CaseStudiesPage::class;
+    public static $model = \App\Models\Banner::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,17 +34,6 @@ class CaseStudiesPage extends Resource
         'id',
     ];
 
-
-    /**
-     * Override the label shown in the admin sidebar.
-     *
-     * @return string
-     */
-    public static function label()
-    {
-        return 'Page Content';
-    }
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -57,22 +45,15 @@ class CaseStudiesPage extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('title')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Markdown::make('body')
-                ->withFiles('public')
-                ->required(),
-
-            Image::make('image')->disk('public'),
+            Image::make('image')
+                ->disk('public'),
 
             Text::make('image_alt')
                 ->rules('max:255'),
 
             Boolean::make('active')
                 ->rules('required')
-                ->default(true),
+                ->default(true)
         ];
     }
 

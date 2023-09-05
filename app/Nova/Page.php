@@ -38,13 +38,6 @@ class Page extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'Home Page';
-
-    /**
      * Override the label shown in the admin sidebar.
      *
      * @return string
@@ -53,7 +46,6 @@ class Page extends Resource
     {
         return 'Page Links';
     }
-
 
     /**
      * Get the fields displayed by the resource.
@@ -77,7 +69,9 @@ class Page extends Resource
                 ->withFiles('public')
                 ->required(),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->required()
+                ->default(true),
         ];
     }
 

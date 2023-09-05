@@ -36,14 +36,6 @@ class CaseStudy extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'Case Studies Page';
-
-
-    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -62,7 +54,9 @@ class CaseStudy extends Resource
                 ->withFiles('public')
                 ->required(),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->rules('required')
+                ->default(true),
         ];
     }
 

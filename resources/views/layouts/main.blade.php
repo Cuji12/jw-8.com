@@ -7,8 +7,7 @@
     <title>JW-8 LTD - Management Consultancy</title>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css'])
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>
-<body class="antialiased">
+<body class="antialiased relative pb-72 md:pb-48 lg:pb-36 min-h-screen">
     <header class="flex flex-row relative justify-between lg:flex-col" x-data="{open: false}">
 
         <div class="absolute w-full h-full bg-blue opacity-20"></div>
@@ -96,34 +95,34 @@
             </div>
         </div>
 
-        <nav class="bg-gray-200 hidden lg:flex p-3 justify-center z-10 bg-gradient-to-r from-blue-500 to-green-500" aria-label="Site">
-            <ul class="flex flex-row items-center text-lg gap-x-4">
-                <li aria-label="Home">
+        <nav class="bg-gray-200 hidden lg:flex justify-center z-10 bg-gradient-to-t from-gray-300 to-gray-50" aria-label="Site">
+            <ul class="flex flex-row items-center text-lg navigation">
+                <li class="border-r-gray-400 p-3" aria-label="Home">
                     <a class="hover:text-light-blue" href="{{ url('/') }}">
                         Home
                     </a>
                 </li>
-                <li aria-label="About Us">
+                <li class="border-l-white border-r-gray-400 p-3" aria-label="About Us">
                     <a class="hover:text-light-blue" href="{{ url('/about-us') }}">
                         About Us
                     </a>
                 </li>
-                <li aria-label="Our Solutions">
+                <li class="border-l-white border-r-gray-400 p-3" aria-label="Our Solutions">
                     <a class="hover:text-light-blue" href="{{ url('/our-solutions') }}">
                         Our Solutions
                     </a>
                 </li>
-                <li aria-label="Our Consultants">
+                <li class="border-l-white border-r-gray-400 p-3" aria-label="Our Consultants">
                     <a class="hover:text-light-blue" href="{{ url('/our-consultants') }}">
                         Our Consultants
                     </a>
                 </li>
-                <li aria-label="Case Studies">
+                <li class="border-l-white border-r-gray-400 p-3" aria-label="Case Studies">
                     <a class="hover:text-light-blue" href="{{ url('/case-studies') }}">
                         Case Studies
                     </a>
                 </li>
-                <li aria-label="Useful links">
+                <li class="border-l-white p-3" aria-label="Useful links">
                     <a class="hover:text-light-blue" href="{{ url('/useful-links') }}">
                         Useful links
                     </a>
@@ -132,14 +131,14 @@
         </nav>
     </header>
 
-    <main>
+    <main class="flex justify-center pt-5">
         @yield('content')
     </main>
 
     <footer class="absolute bottom-0 w-full">
         <div class="text-blue p-2 text-center">
             <p>JW-8 Online Legal Disclaimer and Copyright Notice</p>
-            <p class="text-sm">
+            <p class="text-sm text-gray-400">
                 This website and its content are copyright of JW-8 Ltd © {{ date('Y') }}
                 JW-8 Ltd is a UK private limited company. All rights reserved
             </p>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Nova\AboutUsPage;
+use App\Nova\Banner;
 use App\Nova\CaseStudiesPage;
 use App\Nova\CaseStudy;
 use App\Nova\OurConsultantsPage;
@@ -35,6 +36,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuGroup::make('Home', [
                         Menuitem::resource(Page::class),
                         Menuitem::resource(CaseStudy::class),
+                        Menuitem::resource(Banner::class),
                     ])->collapsedByDefault(),
                     MenuGroup::make('About Us', [
                         MenuItem::resource(AboutUsPage::class),

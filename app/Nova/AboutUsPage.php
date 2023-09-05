@@ -37,13 +37,6 @@ class AboutUsPage extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'About Us Page';
-
-    /**
      * Override the label shown in the admin sidebar.
      *
      * @return string
@@ -77,7 +70,9 @@ class AboutUsPage extends Resource
             Text::make('image_alt')
                 ->rules('max:255'),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->rules('required')
+                ->default(true),
         ];
     }
 

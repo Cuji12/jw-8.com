@@ -36,13 +36,6 @@ class OurConsultantsPage extends Resource
     ];
 
     /**
-     * The page this resource is associated with.
-     *
-     * @var string
-     */
-    public static $group = 'Our Consultants Page';
-
-    /**
      * Override the label shown in the admin sidebar.
      *
      * @return string
@@ -71,7 +64,9 @@ class OurConsultantsPage extends Resource
                 ->withFiles('public')
                 ->required(),
 
-            Boolean::make('active'),
+            Boolean::make('active')
+                ->rules('required')
+                ->default(true),
         ];
     }
 
