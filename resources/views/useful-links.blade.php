@@ -7,13 +7,9 @@
             <aside class="md:w-5/12 lg:w-auto">
                 <img class="w-full max-w-xs rounded-md" src="{{ asset('storage/' . $content->image) }}" alt="{{ $content->image_alt }}" />
             </aside>
-            <div class="flex flex-col gap-y-4 md:w-7/12">
-                <section>
-                    {!! $content->top_text !!}
-                </section>
-                <x-pages :pages="$pages" classes="w-full max-w-sm" />
-                <section>
-                    {!! $content->bottom_text !!}
+            <div class="flex flex-col gap-y-4 md:w-6/12 lg:w-7/12">
+                <section class="markdown-content useful-links text-light-grey">
+                    {!! $content->body !!}
                 </section>
             </div>
         </div>

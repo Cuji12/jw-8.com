@@ -12,10 +12,10 @@ class Pages extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public Collection $pages)
-    {
-        //
-    }
+    public function __construct(
+        public Collection $pages,
+        public string $classes
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

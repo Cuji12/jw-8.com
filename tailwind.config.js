@@ -10,6 +10,7 @@ export default {
             colors: {
                 'blue': '#0a2f73',
                 'light-blue': "#a7bedd",
+                'light-grey': '#666666'
             },
         },
     },

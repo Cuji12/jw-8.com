@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\CaseStudiesPage;
 use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Models\AboutUsPage;
 use App\Models\OurSolutionsPage;
+use App\Models\OurConsultantsPage;
+use App\Models\UsefulLinksPage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -53,6 +56,39 @@ class SiteController extends Controller
         $pages = Page::where('active', true)->limit(10)->get();
 
         return view('our-solutions', compact('content', 'pages'));
+    }
+
+    /**
+     * @return View
+     */
+    public function ourConsultants(): View
+    {
+        $content = OurConsultantsPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->body = $parsed_body->text($content->body);
+
+        return view('our-consultants', compact('content'));
+    }
+
+    /**
+     * @return View
+     */
+    public function caseStudies(): View
+    {
+        $content = CaseStudiesPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->body = $parsed_body->text($content->body);
+
+        return view('case-studies', compact('content'));
+    }
+
+    public function usefulLinks(): View
+    {
+        $content = UsefulLinksPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->body = $parsed_body->text($content->body);
+
+        return view('useful-links', compact('content'));
     }
 
     /**

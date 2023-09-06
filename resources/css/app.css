@@ -27,4 +27,12 @@ body {
     color: #3490dc;
     text-decoration: underline;
 }
+.markdown-content p > strong {
+    display: block
+}
+
+
+.fit-content {
+    width: fit-content;
+}
 
