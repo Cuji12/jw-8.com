@@ -36,7 +36,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuGroup::make('Home', [
                         Menuitem::resource(Page::class),
                         Menuitem::resource(CaseStudy::class),
-                        Menuitem::resource(Banner::class),
                     ])->collapsedByDefault(),
                     MenuGroup::make('About Us', [
                         MenuItem::resource(AboutUsPage::class),
@@ -53,6 +52,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ])->collapsedByDefault(),
                     MenuGroup::make('Useful Links', [
                         MenuItem::resource(UsefulLinksPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Banners', [
+                        Menuitem::resource(Banner::class),
                     ])->collapsedByDefault(),
 
                 ])->icon('document-text')->collapsedByDefault(),

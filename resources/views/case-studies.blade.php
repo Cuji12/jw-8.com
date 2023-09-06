@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('banner')
+    <x-carousel :banners="$banners"></x-carousel>
+@endsection
+
 @section('content')
     <div>
         <h1 class="text-2xl text-blue font-bold w-full px-3 sm:px-7">{{ $content->title }}</h1>

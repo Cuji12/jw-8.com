@@ -27,10 +27,42 @@ body {
     color: #3490dc;
     text-decoration: underline;
 }
-.markdown-content p > strong {
+.markdown-content:not(.no-block) p > strong {
     display: block
 }
 
+.carousel-item.active {
+    animation: fadeIn 2s ease-out;
+    animation-fill-mode: forwards
+}
+.carousel-item.hide {
+    animation: fadeOut 2s ease-out;
+    animation-fill-mode: forwards
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+[x-cloak] {
+    display: none;
+}
 
 .fit-content {
     width: fit-content;
