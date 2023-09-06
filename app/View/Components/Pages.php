@@ -14,7 +14,7 @@ class Pages extends Component
      */
     public function __construct(
         public Collection $pages,
-        public string $classes
+        public string|null $classes = null
     ) {}
 
     /**
