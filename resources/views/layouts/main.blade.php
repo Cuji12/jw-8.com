@@ -7,7 +7,7 @@
     <title>JW-8 LTD - Management Consultancy</title>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/fontawesome/css/all.css'])
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

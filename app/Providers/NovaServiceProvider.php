@@ -30,6 +30,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
+        Nova::withBreadcrumbs();
+
         Nova::mainMenu(function (Request $request) {
             return [
                 MenuSection::make('Pages', [
@@ -90,7 +92,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
                 'cu.janeway@gmail.com',
-                'john@jw-8.com',
+                'john.westby@jw-8.com',
             ]);
         });
     }

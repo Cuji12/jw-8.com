@@ -105,13 +105,17 @@ class SiteController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|Application|RedirectResponse|Redirector
+     * @return View|NotFoundHttpException
      */
-    public function page(Request $request, string $page): \Illuminate\Contracts\Foundation\Application|Application|RedirectResponse|Redirector
+    public function page(Request $request, string $page): View|NotFoundHttpException
     {
         try {
-            $page = Page::where('slug', $page)->firstOrFail();
-            return view('contact', compact('page'));
+            $banners = app('banners');
+            $pages = Page::where('active', true)->limit(10)->get();
+            $content = Page::where('slug', $page)->firstOrFail();
+            $parsed_body = new Parsedown();
+            $content->body = $parsed_body->text($content->body);
+            return view('page', compact('content', 'banners', 'pages'));
         } catch (\Exception $e) {
             return throw new NotFoundHttpException();
         }
