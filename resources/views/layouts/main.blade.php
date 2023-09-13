@@ -9,6 +9,9 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- ReCaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +123,11 @@
                 <li class="border-l-white border-r-gray-400 p-3" aria-label="Case Studies">
                     <a class="hover:text-light-blue" href="{{ url('/case-studies') }}">
                         Case Studies
+                    </a>
+                </li>
+                <li class="border-l-white border-r-gray-400 p-3" aria-label="Contact Us">
+                    <a class="hover:text-light-blue" href="{{ url('/contact') }}">
+                        Contact Us
                     </a>
                 </li>
                 <li class="border-l-white p-3" aria-label="Useful links">

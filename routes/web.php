@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(SiteController::class)->group(function () {
@@ -12,4 +13,6 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/useful-links', 'usefulLinks')->name('site.useful-links');
     Route::get('/contact', 'contact')->name('site.contact');
     Route::get('/pages/{page}', 'page')->name('site.page');
+
+    Route::post('/contact', [ContactController::class, 'mailContactForm']);
 });

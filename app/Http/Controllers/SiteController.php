@@ -7,6 +7,7 @@ use App\Models\CaseStudiesPage;
 use App\Models\CaseStudy;
 use App\Models\Page;
 use App\Models\AboutUsPage;
+use App\Models\ContactPage;
 use App\Models\OurSolutionsPage;
 use App\Models\OurConsultantsPage;
 use App\Models\UsefulLinksPage;
@@ -96,8 +97,13 @@ class SiteController extends Controller
      */
     public function contact(): View
     {
-        return view('contact');
+        $content = ContactPage::where('active', true)->firstOrFail();
+        $parsed_body = new Parsedown();
+        $content->body = $parsed_body->text($content->body);
+
+        return view('contact', compact('content'));
     }
+    
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|Application|RedirectResponse|Redirector
