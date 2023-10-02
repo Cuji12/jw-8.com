@@ -88,6 +88,11 @@
                                 Case Studies
                             </a>
                         </li>
+                        <li aria-label="Contact Us">
+                            <a class="hover:text-light-blue" href="{{ url('/contact') }}">
+                                Contact Us
+                            </a>
+                        </li>
                         <li aria-label="Useful links">
                             <a class="hover:text-light-blue" href="{{ url('/useful-links') }}">
                                 Useful links

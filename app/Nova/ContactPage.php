@@ -33,6 +33,7 @@ class ContactPage extends Resource
      */
     public static $search = [
         'id',
+        'title',
     ];
 
     /**
