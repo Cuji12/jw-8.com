@@ -31,13 +31,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
+        Nova::withBreadcrumbs();
+
         Nova::mainMenu(function (Request $request) {
             return [
                 MenuSection::make('Pages', [
                     MenuGroup::make('Home', [
                         Menuitem::resource(Page::class),
                         Menuitem::resource(CaseStudy::class),
-                        Menuitem::resource(Banner::class),
                     ])->collapsedByDefault(),
                     MenuGroup::make('About Us', [
                         MenuItem::resource(AboutUsPage::class),
@@ -57,6 +58,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ])->collapsedByDefault(),
                     MenuGroup::make('Useful Links', [
                         MenuItem::resource(UsefulLinksPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Banners', [
+                        Menuitem::resource(Banner::class),
                     ])->collapsedByDefault(),
 
                 ])->icon('document-text')->collapsedByDefault(),
@@ -92,7 +96,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
                 'cu.janeway@gmail.com',
-                'john@jw-8.com',
+                'john.westby@jw-8.com',
             ]);
         });
     }

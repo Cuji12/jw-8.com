@@ -7,7 +7,7 @@
     <title>JW-8 LTD - Management Consultancy</title>
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/fontawesome/css/all.css'])
 
     <!-- ReCaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -38,7 +38,7 @@
             </button>
         </div>
 
-        <div class="fixed inset-0 bg-gray-900 bg-opacity-50" x-show="open"
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-50 " x-show="open" x-cloak
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100"
@@ -46,7 +46,7 @@
              x-transition:leave-start="opacity-100"
              x-transition:leave-end="opacity-0">
         </div>
-        <div class="fixed inset-0 flex flex-col justify-center items-center z-20" x-show="open"
+        <div class="fixed inset-0 flex flex-col justify-center items-center z-20" x-show="open" x-cloak
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 scale-90"
              x-transition:enter-end="opacity-100 scale-100"
@@ -143,6 +143,8 @@
             </ul>
         </nav>
     </header>
+
+    @yield('banner')
 
     <main class="flex justify-center pt-5">
         @yield('content')

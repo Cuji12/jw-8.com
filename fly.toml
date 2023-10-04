@@ -1,0 +1,48 @@
+# fly.toml app configuration file generated for john-jw-8 on 2023-09-07T11:31:34+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "john-jw-8"
+primary_region = "lhr"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+console_command = "php /var/www/html/artisan tinker"
+
+[build]
+  [build.args]
+    NODE_VERSION = "18"
+    PHP_VERSION = "8.1"
+
+[deploy]
+  release_command = "php /var/www/html/artisan migrate --force"
+
+[env]
+    APP_URL="https://john-jw-8.fly.dev"
+    APP_ENV = "production"
+    DB_CONNECTION = "mysql"
+    DB_DATABASE = "john-jw-8"
+    DB_HOST = "lhr.john-jw-8-mysql.internal"
+    LOG_CHANNEL = "stderr"
+    LOG_LEVEL = "info"
+    LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+    SESSION_DRIVER = "cookie"
+    SESSION_SECURE_COOKIE = "true"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
