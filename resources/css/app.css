@@ -8,6 +8,24 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.form-group{
+    margin: 10px;
+    vertical-align: top;
+}
+label{
+    vertical-align: top;
+}
+
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
 .navigation > li {
     border-right-width: 1px;
     border-left-width: 1px;
