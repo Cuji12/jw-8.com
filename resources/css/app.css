@@ -22,6 +22,10 @@ body {
 .markdown-content p {
     margin-bottom: 1.5rem;
 }
+.markdown-content ul {
+    list-style-type: circle;
+    list-style-position: inside;
+}
 .markdown-content a {
     color: #3490dc;
     text-decoration: underline;
