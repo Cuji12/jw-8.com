@@ -11,6 +11,7 @@ use App\Nova\OurSolutionsPage;
 use App\Nova\Page;
 use App\Nova\UsefulLinksPage;
 use App\Nova\User;
+use App\Nova\ContactPage;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Menu\MenuGroup;
 use Laravel\Nova\Menu\MenuItem;
@@ -41,6 +42,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ])->collapsedByDefault(),
                     MenuGroup::make('About Us', [
                         MenuItem::resource(AboutUsPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Contact Us', [
+                        MenuItem::resource(ContactPage::class),
                     ])->collapsedByDefault(),
                     MenuGroup::make('Our Solutions', [
                         MenuItem::resource(OurSolutionsPage::class),
