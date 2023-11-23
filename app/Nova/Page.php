@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor4Field\CKEditor;
 
 class Page extends Resource
 {
@@ -26,7 +27,7 @@ class Page extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -58,18 +59,18 @@ class Page extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('title')
+            Text::make('Title', 'title')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Slug::make('slug')
+            Slug::make('Slug', 'slug')
                 ->from('title'),
 
-            Markdown::make('body')
-                ->withFiles('public')
-                ->required(),
+            CKEditor::make('Body', 'body')
+            ->withFiles('public')
+            ->required(),
 
-            Boolean::make('active')
+            Boolean::make('Active', 'active')
                 ->required()
                 ->default(true),
         ];

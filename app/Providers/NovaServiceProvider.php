@@ -43,9 +43,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuGroup::make('About Us', [
                         MenuItem::resource(AboutUsPage::class),
                     ])->collapsedByDefault(),
-                    MenuGroup::make('Contact Us', [
-                        MenuItem::resource(ContactPage::class),
-                    ])->collapsedByDefault(),
                     MenuGroup::make('Our Solutions', [
                         MenuItem::resource(OurSolutionsPage::class),
                         Menuitem::resource(Page::class),
@@ -55,6 +52,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ])->collapsedByDefault(),
                     MenuGroup::make('Case Studies', [
                         MenuItem::resource(CaseStudiesPage::class),
+                    ])->collapsedByDefault(),
+                    MenuGroup::make('Contact Us', [
+                        MenuItem::resource(ContactPage::class),
                     ])->collapsedByDefault(),
                     MenuGroup::make('Useful Links', [
                         MenuItem::resource(UsefulLinksPage::class),

@@ -46,17 +46,17 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name')
+            Text::make('Name', 'email')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
+            Text::make('Email', 'email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('Password')
+            Password::make('Password', 'password')
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),

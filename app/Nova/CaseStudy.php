@@ -24,7 +24,7 @@ class CaseStudy extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -46,15 +46,15 @@ class CaseStudy extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('title')
+            Text::make('Title', 'title')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('body')
+            Markdown::make('Body', 'body')
                 ->withFiles('public')
                 ->required(),
 
-            Boolean::make('active')
+            Boolean::make('Active', 'active')
                 ->rules('required')
                 ->default(true),
         ];

@@ -19,3 +19,5 @@ yarn-error.log
 /.idea
 /.vscode
 /.fly/run-command.txt
+/run/secrets/*
+resources/css/fontawesome

@@ -45,13 +45,13 @@ class Banner extends Resource
         return [
             ID::make()->sortable(),
 
-            Image::make('image')
+            Image::make('Image', 'image')
                 ->disk('public'),
 
-            Text::make('image_alt')
+            Text::make('Image Alt', 'image_alt')
                 ->rules('max:255'),
 
-            Boolean::make('active')
+            Boolean::make('Active', 'active')
                 ->rules('required')
                 ->default(true)
         ];

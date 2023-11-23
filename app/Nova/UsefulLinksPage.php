@@ -24,7 +24,7 @@ class UsefulLinksPage extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -56,19 +56,19 @@ class UsefulLinksPage extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('title')
+            Text::make('Title', 'title')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('body')
+            Markdown::make('Body', 'body')
                 ->rules('required'),
 
-            Image::make('image')->disk('public'),
+            Image::make('Image', 'image')->disk('public'),
 
-            Text::make('image_alt')
+            Text::make('Image Alt', 'image_alt')
                 ->rules('max:255'),
 
-            Boolean::make('active')
+            Boolean::make('Active', 'active')
                 ->required()
                 ->default(true),
         ];
