@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor4Field\CKEditor;
 
 class ContactPage extends Resource
 {
@@ -62,7 +63,7 @@ class ContactPage extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('Body', 'body')
+            CKEditor::make('Body', 'body')
                 ->withFiles('public')
                 ->required(),
 

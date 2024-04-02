@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor4Field\CKEditor;
 
 class UsefulLinksPage extends Resource
 {
@@ -60,8 +61,9 @@ class UsefulLinksPage extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('Body', 'body')
-                ->rules('required'),
+            CKEditor::make('Body', 'body')
+                ->withFiles('public')
+                ->required(),
 
             Image::make('Image', 'image')->disk('public'),
 

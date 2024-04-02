@@ -10,7 +10,7 @@
             @foreach ($case_studies as $case_study)
                 <div class="flex flex-col gap-y-3 bg-gradient-to-b from-light-blue to-white rounded-md p-3 mb-6">
                     <h2 class="text-2xl font-bold text-white">{{ $case_study->title }}</h2>
-                    <p>{{ $case_study->body }}</p>
+                    <p>{!! $case_study->body  !!} </p>
                 </div>
             @endforeach
         </section>

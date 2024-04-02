@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'email' => 'patrickjoseph@live.co.uk',
-    'name' => 'Patrick Clough',
+    'email' => env('NOTIFY_RECIPIENT', 'cu.janeway@gmail.com'),
+    'name' => env('NOTIFY_RECIPIENT_NAME', 'Cu Janeway'),
 ];

@@ -67,8 +67,8 @@ class Page extends Resource
                 ->from('title'),
 
             CKEditor::make('Body', 'body')
-            ->withFiles('public')
-            ->required(),
+                ->withFiles('public')
+                ->required(),
 
             Boolean::make('Active', 'active')
                 ->required()

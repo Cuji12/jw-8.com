@@ -29,18 +29,18 @@ class ContactFormRequest extends FormRequest
              'company' =>'max: 100',
              'subject' =>'required|max: 100',
              'message' => 'required',
-             'g-recaptcha-response' => 'required|recaptcha'
+//             'g-recaptcha-response' => 'required|recaptcha'
          ];
-           $validator=Validator::make($request->all(),[
-            'g-recaptcha-response'=>'required|google_captcha'
-        ]);
+//           $validator=Validator::make($request->all(),[
+//            'g-recaptcha-response'=>'required|google_captcha'
+//        ]);
      }
      public function messages(){
         return [
-        'required' => 'The :attribute field is required.',
-        'email' => 'The :attribute must be a valid :attribute address',
-        'g-recaptcha-response.recaptcha' => 'Captcha verification failed',
-       'g-recaptcha-response.required' => 'Please complete the captcha'
+            'required' => 'The :attribute field is required.',
+            'email' => 'The :attribute must be a valid :attribute address',
+            'g-recaptcha-response.recaptcha' => 'Captcha verification failed',
+            'g-recaptcha-response.required' => 'Please complete the captcha'
         ];
       }
 }

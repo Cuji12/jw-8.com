@@ -46,7 +46,7 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name', 'email')
+            Text::make('Name', 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 

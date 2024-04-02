@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor4Field\CKEditor;
 
 class OurSolutionsPage extends Resource
 {
@@ -60,11 +61,11 @@ class OurSolutionsPage extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Markdown::make('Top Text', 'top_text')
+            CKEditor::make('Top Text', 'top_text')
                 ->withFiles('public')
                 ->required(),
 
-            Markdown::make('Bottom Text', 'bottom_text')
+            CKEditor::make('Bottom Text', 'bottom_text')
                 ->withFiles('public')
                 ->required(),
 

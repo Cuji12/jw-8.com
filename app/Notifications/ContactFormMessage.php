@@ -37,9 +37,9 @@ class ContactFormMessage extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->subject($this->message->subject)
-        ->from($this->message->email, $this->message->firstname, $this->message->lastname, "Company: ". $this->message->company)
-        ->line($this->message->message);
+            ->subject($this->message->subject)
+            ->from($this->message->email, $this->fromName())
+            ->line($this->message->message);
     }
     /**
      * Get the array representation of the notification.
@@ -52,4 +52,13 @@ class ContactFormMessage extends Notification
             //
         ];
     }
+
+    /**
+     * @return String
+     */
+    private function fromName(): String
+    {
+        return "{$this->message->firstname} {$this->message->lastname} Company: {$this->message->company} (via jw-8.com)";
+    }
+
 }
