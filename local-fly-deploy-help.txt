@@ -1,0 +1,2 @@
+Run the following command to deploy:
+fly deploy --build-secret nova_user="cu.janeway@gmail.com" --build-secret nova_license_key="U2CzKMUuXMUqewAQjINww7TsXy85bZpba3qt7g3PZ33PPWleaU"

@@ -17,10 +17,10 @@ LABEL fly_launch_runtime="laravel"
 COPY . /var/www/html
 
 RUN --mount=type=secret,id=nova_user \
-        --mount=type=secret,id=nova_pass \
+        --mount=type=secret,id=nova_license_key \
         \
         composer config http-basic.nova.laravel.com \
-            "$(cat /run/secrets/nova_user)" "$(cat /run/secrets/nova_pass)" \
+            "$(cat /run/secrets/nova_user)" "$(cat /run/secrets/nova_license_key)" \
         \
     && composer install --optimize-autoloader --no-dev \
     && mkdir -p storage/logs \
