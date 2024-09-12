@@ -38,7 +38,7 @@
             </button>
         </div>
 
-        <div class="fixed inset-0 bg-gray-900 bg-opacity-50 " x-show="open" x-cloak
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-10" x-show="open" x-cloak
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100"
