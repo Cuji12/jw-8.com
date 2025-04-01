@@ -46,17 +46,19 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name', 'name')
+            Gravatar::make()->maxWidth(50),
+
+            Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email', 'email')
+            Text::make('Email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('Password', 'password')
+            Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),

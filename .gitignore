@@ -19,6 +19,5 @@ yarn-error.log
 /.vscode
 /.fly/run-command.txt
 /run/secrets/*
-resources/css/fontawesome
 local-fly-deploy-help.txt
 auth.json
