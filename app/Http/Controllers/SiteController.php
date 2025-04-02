@@ -48,6 +48,7 @@ class SiteController extends Controller
         $content = Cache::remember('about_us_page', 3600, function () {
             return AboutUsPage::where('active', true)->firstOrFail();
         });
+
         $parsed_body = new Parsedown();
         $content->body = $parsed_body->text($content->body);
 

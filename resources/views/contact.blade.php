@@ -23,7 +23,7 @@
                 </div>
             </div>
         @endif
-        <h1 class="text-2xl text-blue font-bold w-full px-3 sm:px-7">{{ $content->title }}</h1>
+        <h1 class="text-2xl md:text-3xl text-blue font-bold w-full px-3 sm:px-7">{{ $content->title }}</h1>
         <div class="flex flex-col p-3 gap-y-4 sm:px-7 md:flex-row md:gap-x-10">
             <section class="markdown-content md:w-2/3">
             <div class="">

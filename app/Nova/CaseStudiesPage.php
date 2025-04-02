@@ -71,6 +71,12 @@ class CaseStudiesPage extends Resource
             Text::make('Image Alt', 'image_alt')
                 ->rules('max:255'),
 
+            Image::make('Mobile Image', 'mobile_image')
+                ->disk('public'),
+
+            Text::make('Mobile Image Alt', 'mobile_image_alt')
+                ->rules('max:255'),
+
             Boolean::make('Active', 'active')
                 ->rules('required')
                 ->default(true),

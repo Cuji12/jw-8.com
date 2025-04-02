@@ -146,7 +146,7 @@
 
     @yield('banner')
 
-    <main class="flex justify-center pt-5">
+    <main class="flex justify-center p-5">
         @yield('content')
     </main>
 
