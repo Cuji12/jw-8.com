@@ -70,7 +70,7 @@ class OurSolutionsPage extends Resource
                 ->required(),
 
             Image::make('Image', 'image')
-                ->disk('public'),
+                ->disk('s3'),
 
             Text::make('Image Alt', 'image_alt')
                 ->rules('max:255'),
