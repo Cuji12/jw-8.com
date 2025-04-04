@@ -10,21 +10,6 @@ class UsefulLinksPage extends Model
 {
     use HasFactory;
 
-    protected static function booted()
-    {
-        static::created(function ($record) {
-            Cache::forget("useful_links_page");
-        });
-
-        static::updated(function ($record) {
-            Cache::forget("useful_links_page");
-        });
-
-        static::deleted(function ($record) {
-            Cache::forget("useful_links_page");
-        });
-    }
-
     protected $fillable = [
         'title',
         'body',

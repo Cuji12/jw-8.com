@@ -10,20 +10,6 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected static function booted(): void
-    {
-        static::created(function ($record) {
-            Cache::forget("pages");
-        });
-
-        static::updated(function ($record) {
-            Cache::forget("pages");
-        });
-
-        static::deleted(function ($record) {
-            Cache::forget("pages");
-        });
-    }
     protected $fillable = [
         'title',
         'body',

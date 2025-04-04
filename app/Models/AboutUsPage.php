@@ -10,17 +10,6 @@ class AboutUsPage extends Model
 {
     use HasFactory;
 
-    protected static function booted()
-    {
-        static::updated(function ($record) {
-            Cache::forget("about_us_page");
-        });
-
-        static::deleted(function ($post) {
-            Cache::forget("about_us_page");
-        });
-    }
-
     protected $fillable = [
         'title',
         'body',
