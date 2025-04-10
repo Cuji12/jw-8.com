@@ -1,13 +1,6 @@
-<script>
-    function onSubmit(token) {
-        document.getElementById("contact-form").submit();
-    }
-</script>
-
 <form id="contact-form" class="w-full max-w-lg" method="POST" action="/contact">
 
     {{ csrf_field() }}
-    {!! RecaptchaV3::field('register') !!}
 
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

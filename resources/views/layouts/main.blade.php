@@ -9,15 +9,13 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/fontawesome/css/all.css'])
 
-    <!-- ReCaptcha -->
-    {!! RecaptchaV3::initJs() !!}
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>
+
 <body class="antialiased relative pb-72 md:pb-48 lg:pb-36 min-h-screen">
     <header class="flex flex-row relative justify-between lg:flex-col" x-data="{open: false}">
 
