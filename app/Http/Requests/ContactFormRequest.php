@@ -29,11 +29,8 @@ class ContactFormRequest extends FormRequest
              'company' =>'max: 100',
              'subject' =>'required|max: 100',
              'message' => 'required',
-//             'g-recaptcha-response' => 'required|recaptcha'
+             'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
          ];
-//           $validator=Validator::make($request->all(),[
-//            'g-recaptcha-response'=>'required|google_captcha'
-//        ]);
      }
      public function messages(){
         return [

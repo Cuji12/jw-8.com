@@ -10,6 +10,7 @@
         "biscolab/laravel-recaptcha": "^6.0",
         "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
+        "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/nova": "4.35.0",
         "laravel/sanctum": "^4.0",

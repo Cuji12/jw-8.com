@@ -89,3 +89,5 @@ label{
     width: fit-content;
 }
 
+.grecaptcha-badge { visibility: hidden !important; }
+

@@ -17,5 +17,5 @@ class ContactController extends Controller
 
         return redirect()->back()->with('message', 'Thanks for contacting JW-8 Ltd. We\'ll get back to you as soon as possible');
     }
-    
+
 }

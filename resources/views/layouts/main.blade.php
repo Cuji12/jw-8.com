@@ -10,7 +10,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/fontawesome/css/all.css'])
 
     <!-- ReCaptcha -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    {!! RecaptchaV3::initJs() !!}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

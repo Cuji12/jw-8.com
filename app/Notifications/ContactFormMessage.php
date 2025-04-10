@@ -58,7 +58,10 @@ class ContactFormMessage extends Notification
      */
     private function fromName(): String
     {
-        return "{$this->message->firstname} {$this->message->lastname} Company: {$this->message->company} (via jw-8.com)";
+        if (isset($this->message->company)) {
+            return "{$this->message->firstname} {$this->message->lastname} Company: {$this->message->company} (via jw-8.com)";
+        } else {
+            return "{$this->message->firstname} {$this->message->lastname} (via jw-8.com)";
+        }
     }
-
 }
