@@ -1,6 +1,7 @@
 <form id="contact-form" class="w-full max-w-lg" method="POST" action="/contact">
 
     {{ csrf_field() }}
+    {!! RecaptchaV3::field('register') !!}
 
     <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -61,9 +62,6 @@
             <div class="p-2 bg-gradient-to-t from-gray-300 to-gray-200 w-20 rounded float-right text-center">
                 <button
                     type="submit"
-                    data-sitekey="6LdqSAorAAAAACfh1k4WxM8JmiNmy1HDZydAuQN_"
-                    data-callback="onSubmit"
-                    data-action="submit"
                     class="btn btn-primary g-recaptcha"
                     value="Send">Send
                 </button>

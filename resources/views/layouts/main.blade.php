@@ -16,6 +16,8 @@
 
 </head>
 
+{!! RecaptchaV3::initJs() !!}
+
 <body class="antialiased relative pb-72 md:pb-48 lg:pb-36 min-h-screen">
     <header class="flex flex-row relative justify-between lg:flex-col" x-data="{open: false}">
 

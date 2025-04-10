@@ -29,6 +29,7 @@ class ContactFormRequest extends FormRequest
              'company' =>'max: 100',
              'subject' =>'required|max: 100',
              'message' => 'required',
+             'g-recaptcha-response' => 'required|recaptchav3:register,0.4'
          ];
      }
      public function messages(){
