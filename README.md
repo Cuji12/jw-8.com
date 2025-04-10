@@ -9,15 +9,22 @@
 ## Installation
 - `git clone https://github.com/Cuji12/jw-8.com.git`
 - `cd jw-8.com && cp .env.example .env`
-- `sail up -d`
-- `sail artisan key:generate`
-- Create an auth.json file in the root directory with the details for Laravel Nova.
 - `sail composer install`
 - `sail npm install`
+- `sail up -d`
+- `sail artisan key:generate`
+
 - `sail artisan nova:install`
 - `sail artisan migrate`
 - `npm run dev`
 - Access website at `http://localhost` and Laravel Nova at `http://localhost/nova`
+- You can view the local mail server dashboard at `http://localhost:8025`
+
+## Deployment
+The app is deployed to https://fly.io, I recommend just creating a local txt file in the project outside of source control
+- fly deploy --build-secret nova_user="cu.janeway@gmail.com" --build-secret nova_license_key="LICENSE_KEY"
+
+The build secrets are required to install the private repo during the build process of the containers. 
 
 
 ## Useful Information
@@ -43,3 +50,8 @@ Emails for admin access are whitelisted in the `gate()` method of the `NovaServi
 ### TailwindCSS
 If you need to extend the Tailwind library with colours / new breakpoints, you can do so in the `tailwind.config.js` file. For further
 information refer to the TailwindCSS documentation: https://tailwindcss.com/docs/configuration.
+
+### Site Content
+When it comes to adding site content via the admin dashboard, I would recommend not using tables as it's not possible
+to make them mobile responsive. Feel free to add as much, or as little content, otherwise because it'll scale 
+properly.
