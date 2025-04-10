@@ -20,13 +20,20 @@
 - Access website at `http://localhost` and Laravel Nova at `http://localhost/nova`
 - You can view the local mail server dashboard at `http://localhost:8025`
 
-## Deployment
+## Fly.io
+### Downloading the CLI
+You can look at the instructions for downloading the Fly CLI on your machine here: https://fly.io/docs/flyctl/install/
+### Deployment
 The app is deployed to https://fly.io, I recommend just creating a local txt file in the project outside of source control
-- fly deploy --build-secret nova_user="cu.janeway@gmail.com" --build-secret nova_license_key="LICENSE_KEY"
+with the following:
+- `fly deploy --build-secret nova_user="cu.janeway@gmail.com" --build-secret nova_license_key="LICENSE_KEY"`
 
 The build secrets are required to install the private repo during the build process of the containers. 
 
-
+### Configuring Contact Form Email
+If you want to change the email in which the contact form sends out to, you'll need to configure the secret for 
+`NOTIFY_RECIPIENT` and `NOTIFY_RECIPIENT_NAME`. You can do this with the following command:
+- `fly secrets set NOTIFY_RECIPIENT="YOUR EMAIL" NOTIFY_RECIPIENT_NAME="YOUR NAME"`
 ## Useful Information
 ### Configuring a Sail shell alias
 - Run the following command in your terminal: `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`.
